@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Library & Tools — GenAI Academy</title>
+  <meta name="description" content="Explore and share community AI prompts at GenAI Academy Sri Lanka.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/jpeg" href="Logo.jpeg">
+</head>
+
+<body class="genai-body" id="body">
+
+  <!-- Navbar -->
+  <nav class="genai-nav" id="navbar">
+    <div class="genai-nav-inner">
+      <a class="genai-nav-logo" href="index.html#hero">
+        <img src="Logo.jpeg" alt="GenAI Academy Logo"
+          style="width: 36px; height: 36px; flex-shrink: 0; object-fit: contain; border-radius: 4px;" />
+        <span>GenAI Academy</span>
+      </a>
+      <ul class="genai-nav-links">
+        <li><a href="index.html#hero">Home</a></li>
+        <li><a href="index.html#courses">Courses</a></li>
+        <li><a href="index.html#founders">Founders</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="tools.html">Tools</a></li>
+        <!-- User Profile Widget (shown when logged in) -->
+        <!-- User Profile Widget (shown when logged in) -->
+        <li id="user-profile-widget" style="display:none; position:relative;">
+          <div id="user-avatar-btn" class="genai-user-profile-btn">
+            <img id="user-avatar-img" src="" alt="Avatar" style="width:32px; height:32px; border-radius:50%; object-fit:cover; display:none; border:2px solid rgba(0,240,255,0.5);">
+            <div id="user-avatar-initials" style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,#8a2be2,#00f0ff); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85rem; color:#fff; flex-shrink:0;">?</div>
+            <div style="display:flex; flex-direction:column; line-height:1.2;">
+              <span id="user-display-name" class="genai-user-name"></span>
+              <span id="user-admin-badge" class="genai-user-admin-badge">⚡ ADMIN</span>
+            </div>
+            <svg class="genai-profile-caret" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <!-- Dropdown Menu -->
+          <div id="user-dropdown" class="genai-user-dropdown-menu">
+            <div style="padding:12px 12px 16px; border-bottom:1px solid rgba(255,255,255,0.1); margin-bottom:8px;" class="genai-user-dropdown-header">
+              <div id="dropdown-email" class="genai-dropdown-email"></div>
+              <div id="dropdown-name" class="genai-dropdown-name"></div>
+              <div id="dropdown-admin-tag" class="genai-dropdown-admin-tag">⚡ Admin Account</div>
+            </div>
+            <a href="#" id="auth-btn" class="genai-dropdown-logout-btn">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+              Logout
+            </a>
+          </div>
+        </li>
+        <!-- Login button (shown when logged out) -->
+        <li id="login-btn-wrapper">
+          <a href="#" id="auth-btn-login" style="font-weight:700; background:linear-gradient(135deg,#8a2be2,#00f0ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Login</a>
+        </li>
+        <li>
+          <button class="genai-theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+      <button class="genai-theme-toggle genai-mobile-toggle" id="theme-toggle-mobile" aria-label="Toggle theme">
+        <svg id="theme-icon-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+      <button class="genai-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="genai-mobile-menu" id="mobile-menu">
+    <a href="index.html#hero">Home</a>
+    <a href="index.html#courses">Courses</a>
+    <a href="index.html#founders">Founders</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="tools.html">Tools</a>
+    <a href="#" id="auth-btn-mobile" style="font-weight: 700; color: #007bff;">Login</a>
+  </div>
+
+  <!-- Hero Header -->
+  <header class="genai-syllabus-hero">
+    <div class="genai-syllabus-hero-content">
+      <h1 class="genai-heading">Prompt Library</h1>
+      <p>Discover, share, and manage your AI prompts.</p>
+    </div>
+  </header>
+
+  <!-- Main Tools Section -->
+  <section class="genai-section-full genai-section-alt" style="background: transparent !important;">
+    <div class="genai-section genai-fade-in" style="max-width: 1200px; margin: 0 auto; min-height: 500px; padding-top: 40px;">
+      
+      <!-- Toolbar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+        <div class="genai-tabs">
+          <button class="genai-tab-btn active" id="tab-public">Public Library</button>
+          <button class="genai-tab-btn" id="tab-private" style="display: none;">My Library</button>
+          <button class="genai-tab-btn" id="tab-admin" style="display: none;">Admin Panel</button>
+        </div>
+        <!-- Search Bar -->
+        <div class="genai-search-bar">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" class="genai-search-icon">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="prompt-search" placeholder="Search prompts..." class="genai-search-input" autocomplete="off">
+          <button id="search-clear" class="genai-search-clear" style="display:none;">✕</button>
+        </div>
+        <button class="genai-submit-btn" id="btn-add-prompt" style="display: none;">+ Add Prompt</button>
+      </div>
+
+      <div class="genai-tools-layout">
+        <!-- Sidebar Filter -->
+        <aside class="genai-sidebar">
+          <h3>Categories</h3>
+          <div class="genai-sidebar-item active" data-filter="All">🌟 All Prompts</div>
+          <div class="genai-sidebar-item" data-filter="Text Prompts">📝 Text Prompts</div>
+          <div class="genai-sidebar-item" data-filter="Image Prompts">🎨 Image Prompts</div>
+          <div class="genai-sidebar-item" data-filter="Video Prompts">🎬 Video Prompts</div>
+          <div class="genai-sidebar-item" data-filter="Coding Prompts">💻 Coding Prompts</div>
+          <div class="genai-sidebar-item" data-filter="Music Prompts">🎵 Music Prompts</div>
+          
+          <h3 style="margin-top: 24px;">Filters</h3>
+          <div class="genai-sidebar-item" data-sort="Trending">🔥 Trending</div>
+          <div class="genai-sidebar-item" data-sort="Recent">🕒 Recent</div>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="genai-content-area">
+          <div id="prompts-container" class="genai-prompts-grid">
+            <div style="text-align: center; grid-column: 1 / -1; padding: 40px; opacity: 0.7;">
+              Loading prompts...
+            </div>
+          </div>
+        </main>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Add Prompt Modal (Hidden by default) -->
+  <div id="prompt-modal" class="genai-modal">
+    <div class="genai-modal-content">
+      <span class="genai-modal-close" id="close-modal">&times;</span>
+      <h2 class="genai-heading" style="margin-bottom: 24px;">Submit a Prompt</h2>
+      <form id="prompt-form" class="genai-contact-form">
+        <input type="text" id="prompt-title" placeholder="Prompt Title (e.g. Master Copywriter)" style="margin-bottom:12px; width:100%; padding:12px; background:rgba(0,0,0,0.2); color:#fff; border:1px solid rgba(255,255,255,0.2); border-radius:4px;" required>
+        <textarea id="prompt-content" placeholder="Paste your prompt text here..." rows="6" style="margin-bottom:12px; width:100%; padding:12px; background:rgba(0,0,0,0.2); color:#fff; border:1px solid rgba(255,255,255,0.2); border-radius:4px;" required></textarea>
+        
+        <div style="margin-bottom: 12px; text-align: left;">
+          <label style="font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; display: block;">Category:</label>
+          <select id="prompt-tool" style="width: 100%; padding: 12px; background:rgba(0,0,0,0.2); color:#fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; font-family: inherit;">
+            <option value="Text Prompts">Text Prompts</option>
+            <option value="Image Prompts">Image Prompts</option>
+            <option value="Video Prompts">Video Prompts</option>
+            <option value="Coding Prompts">Coding Prompts</option>
+            <option value="Music Prompts">Music Prompts</option>
+          </select>
+        </div>
+        
+        <input type="text" id="prompt-tags" placeholder="Tags (comma separated, e.g. writing, marketing)" style="margin-bottom:12px; width:100%; padding:12px; background:rgba(0,0,0,0.2); color:#fff; border:1px solid rgba(255,255,255,0.2); border-radius:4px;" required>
+        
+        <!-- Optional Image URL Input -->
+        <input type="url" id="prompt-image-url" placeholder="Optional Image URL (e.g. https://...)" style="margin-bottom:12px; width:100%; padding:12px; background:rgba(0,0,0,0.2); color:#fff; border:1px solid rgba(255,255,255,0.2); border-radius:4px;">
+
+        <div style="margin-bottom: 16px; text-align: left;">
+          <label style="font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; display: block;">Visibility:</label>
+          <select id="prompt-visibility" style="width: 100%; padding: 12px; background:rgba(0,0,0,0.2); color:#fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; font-family: inherit;">
+            <option value="public">Public (Requires Approval)</option>
+            <option value="private">Private (Only me)</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="genai-submit-btn" style="width: 100%;">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="genai-footer">
+    <div class="genai-footer-inner">
+      <div class="genai-footer-brand">
+        <div class="genai-footer-brand-name">GenAI Academy</div>
+        <div class="genai-footer-tagline">Your Future Starts Here</div>
+      </div>
+      <div class="genai-footer-links">
+        <h4>Quick Links</h4>
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#courses">Courses</a>
+        <a href="tools.html">Tools</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+    <div class="genai-footer-bottom">
+      © 2026 GenAI Academy. Built by Dinil Bhashana & Risith Sasmitha
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  
+  <!-- Auth Script -->
+  <script type="module" src="auth.js"></script>
+
+  <!-- Tools Script -->
+  <script type="module" src="tools.js"></script>
+</body>
+</html>

@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sunIconPath = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
   const moonIconPath = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
 
-  let isDark = localStorage.getItem("theme") === "dark";
+  let isDark = localStorage.getItem("theme") !== "light";
 
   function applyTheme() {
     if (isDark) {
@@ -90,6 +90,14 @@ document.addEventListener("DOMContentLoaded", () => {
       else mobileMenu.classList.remove("open");
     });
   }
+
+  // Close mobile menu on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && menuOpen && mobileMenu) {
+      menuOpen = false;
+      mobileMenu.classList.remove("open");
+    }
+  });
 
   // Smooth scroll links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -289,13 +297,16 @@ document.addEventListener("DOMContentLoaded", () => {
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      const mouseRadiusSq = mouseRadius * mouseRadius;
+
       for (let dot of dots) {
         // Handle mouse interaction
         const mdx = dot.x - mouse.x;
         const mdy = dot.y - mouse.y;
-        const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
+        const mDistSq = mdx * mdx + mdy * mdy;
 
-        if (mDist < mouseRadius && mDist > 0) {
+        if (mDistSq < mouseRadiusSq && mDistSq > 0) {
+          const mDist = Math.sqrt(mDistSq);
           const force = (mouseRadius - mDist) / mouseRadius * 0.8;
           dot.x += (mdx / mDist) * force;
           dot.y += (mdy / mDist) * force;
@@ -314,12 +325,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // Draw lines between near dots
+      const thresholdSq = 120 * 120;
       for (let i = 0; i < dots.length; i++) {
         for (let j = i + 1; j < dots.length; j++) {
           const dx = dots[i].x - dots[j].x;
           const dy = dots[i].y - dots[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
+          const distSq = dx * dx + dy * dy;
+          if (distSq < thresholdSq) {
+            const dist = Math.sqrt(distSq);
             ctx.beginPath();
             ctx.moveTo(dots[i].x, dots[i].y);
             ctx.lineTo(dots[j].x, dots[j].y);
@@ -334,8 +347,9 @@ document.addEventListener("DOMContentLoaded", () => {
       for (let dot of dots) {
         const dx = dot.x - mouse.x;
         const dy = dot.y - mouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < mouseRadius) {
+        const distSq = dx * dx + dy * dy;
+        if (distSq < mouseRadiusSq) {
+          const dist = Math.sqrt(distSq);
           ctx.beginPath();
           ctx.moveTo(mouse.x, mouse.y);
           ctx.lineTo(dot.x, dot.y);

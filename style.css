@@ -1744,3 +1744,594 @@
     font-size: 0.95rem;
   }
 }
+
+/* Prompt Library Styles */
+.genai-tabs {
+  display: flex;
+  gap: 16px;
+}
+
+.genai-tab-btn {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.2);
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.dark .genai-tab-btn {
+  border-color: rgba(255,255,255,0.2);
+  color: white;
+}
+
+.genai-tab-btn.active {
+  background: #000;
+  color: #fff;
+}
+
+.dark .genai-tab-btn.active {
+  background: #fff;
+  color: #000;
+}
+
+.genai-prompts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.genai-prompt-card {
+  border: 1.5px solid rgba(0, 0, 0, 0.2);
+  padding: 24px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 6px;
+}
+
+.dark .genai-prompt-card {
+  background: #111;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.genai-prompt-image {
+  width: 100%;
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.dark .genai-prompt-image {
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.genai-prompt-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.dark .genai-prompt-card:hover {
+  box-shadow: 0 8px 24px rgba(255,255,255,0.1);
+}
+
+.genai-prompt-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.genai-prompt-content {
+  font-family: monospace;
+  background: #f5f5f5;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  max-height: 120px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+  white-space: pre-wrap;
+}
+
+.dark .genai-prompt-content {
+  background: #000;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.genai-prompt-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.genai-status-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.status-approved { background: #d4edda; color: #155724; }
+.status-pending { background: #fff3cd; color: #856404; }
+.dark .status-approved { background: rgba(40, 167, 69, 0.2); color: #28a745; }
+.dark .status-pending { background: rgba(255, 193, 7, 0.2); color: #ffc107; }
+
+/* Modal */
+.genai-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.genai-modal.active {
+  display: flex;
+}
+
+.genai-modal-content {
+  background: #fff;
+  padding: 40px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.dark .genai-modal-content {
+  background: #111;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.genai-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ========================================= */
+/* GENAI ACADEMY - TOOLS PAGE - THEME AWARE  */
+/* ========================================= */
+
+/* ---- Dark body background ---- */
+.genai-body.dark {
+  background: #050505;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* ---- Glass Navbar (dark only) ---- */
+.genai-body.dark .genai-nav {
+  background: rgba(10, 10, 10, 0.7) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ---- PROMPT CARD base ---- */
+.genai-prompt-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.genai-prompt-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+/* ---- PROMPT CARD dark override ---- */
+.genai-body.dark .genai-prompt-card {
+  background: rgba(20, 20, 20, 0.55) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.genai-body.dark .genai-prompt-card:hover {
+  box-shadow: 0 15px 40px rgba(0, 240, 255, 0.15), 0 0 20px rgba(138, 43, 226, 0.1);
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ---- PROMPT CARD text (light) ---- */
+.genai-prompt-title {
+  color: #111;
+}
+.genai-prompt-content {
+  color: #444;
+}
+.genai-prompt-meta {
+  color: #666;
+}
+.genai-body.dark .genai-prompt-title  { color: #f0f0f0; }
+.genai-body.dark .genai-prompt-content { color: #bbb; }
+.genai-body.dark .genai-prompt-meta   { color: #888; }
+
+/* ---- TAGS ---- */
+.genai-prompt-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+/* Light theme tags */
+.genai-tag {
+  background: rgba(0, 160, 200, 0.1);
+  color: #0077aa;
+  border: 1px solid rgba(0, 160, 200, 0.25);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+.genai-tag.tool {
+  background: rgba(120, 0, 200, 0.1);
+  color: #7700cc;
+  border-color: rgba(120, 0, 200, 0.2);
+}
+
+/* Dark theme tags */
+.genai-body.dark .genai-tag {
+  background: rgba(0, 240, 255, 0.1);
+  color: #00f0ff;
+  border-color: rgba(0, 240, 255, 0.2);
+}
+.genai-body.dark .genai-tag.tool {
+  background: rgba(138, 43, 226, 0.15);
+  color: #d896ff;
+  border-color: rgba(138, 43, 226, 0.3);
+}
+
+/* ---- ACTION BUTTONS ---- */
+.genai-prompt-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.genai-body.dark .genai-prompt-actions {
+  border-top-color: rgba(255,255,255,0.08);
+}
+
+.action-btn {
+  background: transparent;
+  border: none;
+  color: #555;         /* Clearly visible on white */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: color 0.25s, transform 0.2s;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+.action-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.action-btn:hover {
+  color: #000;
+  background: rgba(0,0,0,0.06);
+  transform: scale(1.05);
+}
+.genai-body.dark .action-btn       { color: #aaa; }
+.genai-body.dark .action-btn:hover { color: #fff; background: rgba(255,255,255,0.08); }
+
+.action-btn.active-like { color: #e83e5a; }
+.action-btn.active-save { color: #f5a623; }
+
+/* Admin Panel Tab Button Styling */
+#tab-admin {
+  background: rgba(220, 53, 69, 0.05) !important;
+  border-color: rgba(220, 53, 69, 0.3) !important;
+  color: #dc3545 !important;
+}
+#tab-admin.active {
+  background: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: #fff !important;
+}
+#tab-admin:hover {
+  background: rgba(220, 53, 69, 0.12) !important;
+}
+#tab-admin.active:hover {
+  background: #bd2130 !important;
+}
+
+.genai-body.dark #tab-admin {
+  background: rgba(220, 53, 69, 0.2) !important;
+  border-color: rgba(220, 53, 69, 0.5) !important;
+  color: #ffcccc !important;
+}
+.genai-body.dark #tab-admin.active {
+  background: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: #fff !important;
+}
+.genai-body.dark #tab-admin:hover {
+  background: rgba(220, 53, 69, 0.3) !important;
+}
+.genai-body.dark #tab-admin.active:hover {
+  background: #bd2130 !important;
+}
+
+/* ---- SIDEBAR ---- */
+.genai-tools-layout {
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.genai-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: #f0f2f5;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 16px;
+  padding: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 90px;
+}
+.genai-body.dark .genai-sidebar {
+  background: rgba(20, 20, 20, 0.55);
+  backdrop-filter: blur(12px);
+  border-color: rgba(255,255,255,0.1);
+}
+
+.genai-sidebar h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+}
+.genai-body.dark .genai-sidebar h3 { color: #666; }
+
+.genai-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  color: #444;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.genai-sidebar-item:hover {
+  background: rgba(0,0,0,0.07);
+  color: #000;
+}
+.genai-sidebar-item.active {
+  background: rgba(0,0,0,0.09);
+  color: #000;
+  font-weight: 700;
+}
+.genai-body.dark .genai-sidebar-item       { color: #bbb; }
+.genai-body.dark .genai-sidebar-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
+.genai-body.dark .genai-sidebar-item.active { background: rgba(255,255,255,0.12); color: #fff; }
+
+.genai-content-area { flex-grow: 1; }
+
+/* ---- SEARCH BAR ---- */
+.genai-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1.5px solid rgba(0,0,0,0.15);
+  border-radius: 12px;
+  padding: 8px 14px;
+  min-width: 220px;
+  max-width: 320px;
+  flex: 1;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.genai-search-bar:focus-within {
+  border-color: #7700cc;
+  box-shadow: 0 0 0 3px rgba(120,0,200,0.1);
+}
+.genai-body.dark .genai-search-bar {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.12);
+}
+.genai-body.dark .genai-search-bar:focus-within {
+  border-color: #00f0ff;
+  box-shadow: 0 0 0 3px rgba(0,240,255,0.1);
+}
+.genai-search-icon { color: #999; flex-shrink: 0; }
+.genai-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.9rem;
+  color: #111;
+  font-family: inherit;
+}
+.genai-body.dark .genai-search-input { color: #f0f0f0; }
+.genai-search-input::placeholder { color: #aaa; }
+.genai-search-clear {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0 2px;
+  transition: color 0.2s;
+}
+.genai-search-clear:hover { color: #e00; }
+
+/* ---- Hero/section transparency in dark ---- */
+.genai-body.dark .genai-hero        { background: transparent !important; }
+.genai-body.dark .genai-section-alt { background: transparent !important; }
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .genai-tools-layout { flex-direction: column; }
+  .genai-sidebar { width: 100%; position: static; }
+  .genai-search-bar { max-width: 100%; }
+}
+
+/* ---- USER PROFILE HEADER & DROPDOWN ---- */
+.genai-user-profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background 0.3s;
+}
+.genai-user-profile-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.genai-user-name {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #222;
+}
+.genai-user-admin-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #0077aa;
+  letter-spacing: 0.5px;
+}
+.genai-profile-caret {
+  color: rgba(0, 0, 0, 0.4);
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* User Dropdown Menu */
+.genai-user-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 240px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 16px;
+  padding: 12px;
+  z-index: 999;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+}
+.genai-user-dropdown-header {
+  padding: 12px 12px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.06) !important;
+  margin-bottom: 8px;
+}
+.genai-dropdown-email {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+.genai-dropdown-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111;
+}
+.genai-dropdown-admin-tag {
+  display: none;
+  margin-top: 6px;
+  font-size: 0.7rem;
+  background: rgba(0, 119, 170, 0.08);
+  color: #0077aa;
+  border: 1px solid rgba(0, 119, 170, 0.2);
+  border-radius: 12px;
+  padding: 3px 10px;
+}
+.genai-dropdown-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: rgba(220, 53, 69, 0.9);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.genai-dropdown-logout-btn:hover {
+  background: rgba(220, 53, 69, 0.08);
+}
+
+/* Dark theme overrides for user profile & dropdown */
+.genai-body.dark .genai-user-profile-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+.genai-body.dark .genai-user-profile-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.genai-body.dark .genai-user-name {
+  color: #fff;
+}
+.genai-body.dark .genai-user-admin-badge {
+  color: #00f0ff !important;
+}
+.genai-body.dark .genai-profile-caret {
+  color: rgba(255, 255, 255, 0.5);
+}
+.genai-body.dark .genai-user-dropdown-menu {
+  background: rgba(15, 15, 20, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+.genai-body.dark .genai-user-dropdown-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.genai-body.dark .genai-dropdown-email {
+  color: rgba(255, 255, 255, 0.5);
+}
+.genai-body.dark .genai-dropdown-name {
+  color: #fff;
+}
+.genai-body.dark .genai-dropdown-admin-tag {
+  background: rgba(0, 240, 255, 0.1);
+  color: #00f0ff;
+  border-color: rgba(0, 240, 255, 0.2);
+}
+.genai-body.dark .genai-dropdown-logout-btn {
+  color: rgba(255, 100, 100, 0.9);
+}
+.genai-body.dark .genai-dropdown-logout-btn:hover {
+  background: rgba(255, 100, 100, 0.1);
+}
+
