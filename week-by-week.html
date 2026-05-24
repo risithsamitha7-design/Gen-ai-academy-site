@@ -258,6 +258,56 @@
           </div>
           <p style="margin-top: 16px;">Watch the session directly here to learn more about the Week-by-Week AI curriculum.</p>
         </div>
+
+        <div class="genai-day-card" style="grid-column: 1 / -1;">
+          <div class="genai-day-badge">Day 08</div>
+          <h3>Week-by-Week AI (WBWAI - Day 08)</h3>
+          <div class="genai-custom-video-wrapper" id="custom-video-wrapper-day8">
+            <div class="genai-video-flex-container">
+              <div class="genai-embedded-video" id="video-embed-container-day8">
+                <div class="genai-custom-thumbnail" id="custom-thumbnail-day8" onclick="initCustomPlayer('day8', 'iYQydcykLFw')" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; cursor: pointer;">
+                  <img src="https://img.youtube.com/vi/iYQydcykLFw/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/iYQydcykLFw/0.jpg'" alt="Video Thumbnail" style="width: 100%; height: 100%; object-fit: cover;">
+                  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; background: rgba(0,0,0,0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                    <svg viewBox="0 0 24 24" fill="white" style="width: 28px; height: 28px; margin-left: 4px;">
+                      <polygon points="8,5 19,12 8,19" />
+                    </svg>
+                  </div>
+                </div>
+                <!-- YouTube Iframe API Target -->
+                <div id="youtube-player-day8" style="pointer-events: none;"></div>
+                <!-- Transparent overlay to completely block interaction -->
+                <div class="genai-video-blocker" id="video-blocker-day8" onclick="togglePlay('day8')" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; display: none;"></div>
+              </div>
+            </div>
+            
+            <!-- Custom Controls -->
+            <div class="genai-custom-controls" id="custom-controls-day8" style="display: none;">
+              <button onclick="togglePlay('day8')" class="genai-control-btn" id="play-pause-btn-day8" aria-label="Play/Pause">
+                <svg id="play-icon-day8" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><polygon points="8,5 19,12 8,19" /></svg>
+                <svg id="pause-icon-day8" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" /></svg>
+              </button>
+
+              <!-- Volume Controls -->
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button onclick="toggleMute('day8')" class="genai-control-btn" id="mute-btn-day8" aria-label="Mute/Unmute" style="padding: 0;">
+                  <svg id="vol-icon-day8" viewBox="0 0 24 24" fill="currentColor"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19" /><path d="M15.54,8.46a5,5,0,0,1,0,7.07" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M19.07,4.93a10,10,0,0,1,0,14.14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  <svg id="mute-icon-day8" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19" /><line x1="23" y1="1" x2="1" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+                <input type="range" id="volume-slider-day8" min="0" max="100" value="100" class="genai-range-slider" style="width: 60px;">
+              </div>
+
+              <div class="genai-time-display" id="time-display-day8">0:00 / 0:00</div>
+              
+              <!-- Progress Bar -->
+              <input type="range" id="progress-bar-day8" min="0" max="100" value="0" class="genai-range-slider" style="flex-grow: 1; margin: 0 8px;">
+              
+              <button onclick="toggleFullscreen('day8')" class="genai-control-btn" id="fullscreen-btn-day8" aria-label="Fullscreen">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+              </button>
+            </div>
+          </div>
+          <p style="margin-top: 16px;">Watch the session directly here to learn more about the Week-by-Week AI curriculum.</p>
+        </div>
       </div>
 
     </div>
